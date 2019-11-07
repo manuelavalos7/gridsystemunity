@@ -15,7 +15,7 @@ public class enemyMovement : MonoBehaviour
     private bool turnDone = false;
     void Start()
     {
-        playerScript = GameObject.Find("Player").GetComponent<playerMovement>();
+        //playerScript = GameObject.Find("Player").GetComponent<playerMovement>();
         gridManager = GameObject.Find("gridManager").GetComponent<gridHandler>();
         turnManager = GameObject.Find("turnManager").GetComponent<turnHandler>();
         enemyPos = new Vector3Int(gridManager.board_width-1, gridManager.board_height/2, 0);
@@ -58,7 +58,7 @@ public class enemyMovement : MonoBehaviour
             newPos.x++;
         }
 
-        if (enemyPos != newPos && playerScript.validMatrixPos(newPos) && moving == false)
+        if (enemyPos != newPos && gridManager.validMatrixPos(newPos) && moving == false)
         {
             moving = true;
             StartCoroutine(smoothMovement(enemyPos, newPos));

@@ -134,15 +134,6 @@ public class playerMovement : MonoBehaviour
         moving = false;
     }
 
-    public bool validMatrixPos(Vector3Int matrix_pos) {
 
-        if(matrix_pos.x < 0 || matrix_pos.y < 0 || matrix_pos.x >= gridManager.board_width || matrix_pos.y>= gridManager.board_height){
-            return false;
-        }
-
-        //TODO: add other constraints. i.e. cannot move onto an enemy or an obstacle
-
-        return true;
-    }
 
 }

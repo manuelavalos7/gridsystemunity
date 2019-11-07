@@ -230,6 +230,18 @@ public class gridHandler : MonoBehaviour
         }
     }
 
+    public bool validMatrixPos(Vector3Int matrix_pos)
+    {
+
+        if (matrix_pos.x < 0 || matrix_pos.y < 0 || matrix_pos.x >=board_width || matrix_pos.y >= board_height)
+        {
+            return false;
+        }
+
+        //TODO: add other constraints. i.e. cannot move onto an enemy or an obstacle
+
+        return true;
+    }
 }
 
 

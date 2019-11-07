@@ -14,7 +14,7 @@ public class turnHandler : MonoBehaviour
 
     void Start()
     {
-        playerScript = GameObject.Find("Player").GetComponent<playerMovement>();
+        //playerScript = GameObject.Find("Player").GetComponent<playerMovement>();
         enemyScript = GameObject.Find("Enemy").GetComponent<enemyMovement>();
         playerTurn = true;
         boardSetup = false;
