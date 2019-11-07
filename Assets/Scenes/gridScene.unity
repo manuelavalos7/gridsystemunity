@@ -236,6 +236,7 @@ MonoBehaviour:
   board_tilemap: {fileID: 1145531267}
   basic_tile: {fileID: 11400000, guid: ef1282448b6006746ae6b4eb8cc06a1e, type: 2}
   hover_tile: {fileID: 11400000, guid: 032098681c1edcf4bb806db23d5e211a, type: 2}
+  red_tile: {fileID: 11400000, guid: 5f603b47166e07144a43f3999332badc, type: 2}
 --- !u!4 &461750652
 Transform:
   m_ObjectHideFlags: 0
@@ -365,6 +366,7 @@ MonoBehaviour:
   gridManager: {fileID: 0}
   turnManager: {fileID: 0}
   playerPos: {x: 0, y: 0, z: 0}
+  playerTurn: 1
 --- !u!4 &734317960
 Transform:
   m_ObjectHideFlags: 0
@@ -409,6 +411,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d3dcfed0815c1d4cbb2c13313e0d6fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyTurn: 0
   enemyPos: {x: 0, y: 0, z: 0}
 --- !u!4 &895508713
 Transform:

@@ -14,6 +14,7 @@ public class gridHandler : MonoBehaviour
 
     [SerializeField] Tile basic_tile;
     [SerializeField] Tile hover_tile;
+    public Tile red_tile;
    
     void Awake()
     {
@@ -162,6 +163,7 @@ public class gridHandler : MonoBehaviour
             BFS_Node test = q.Dequeue();
             if(test.coordinates == end){
                 final = test;
+                break;
             }
             visited.Add(test);
             board_tilemap.SetTile(ConvertToTilemapGrid(test.coordinates), hover_tile);
@@ -209,6 +211,23 @@ public class gridHandler : MonoBehaviour
         }
 
         return (coordinate.x < board_width && coordinate.y < board_height && coordinate.x >= 0 && coordinate.y >= 0) && valid_distance;
+    }
+
+    public bool are_adjacent(Vector3Int pos1, Vector3Int pos2) {
+        int x_diff = Mathf.Abs(pos1.x - pos2.x);
+        int y_diff = Mathf.Abs(pos1.y - pos2.y);
+        if (x_diff == 1 && y_diff == 0)
+        {
+            return true;
+        }
+        else if (x_diff == 0 && y_diff == 1)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
 }

@@ -14,6 +14,8 @@ public class turnHandler : MonoBehaviour
 
     void Start()
     {
+        playerScript = GameObject.Find("Player").GetComponent<playerMovement>();
+        enemyScript = GameObject.Find("Enemy").GetComponent<enemyMovement>();
         playerTurn = true;
         boardSetup = false;
         Debug.Log("Player Turn");
@@ -22,47 +24,21 @@ public class turnHandler : MonoBehaviour
     
     void Update()
     {
-        playerScript = GameObject.Find("Player").GetComponent<playerMovement>();
-        enemyScript = GameObject.Find("Enemy").GetComponent<enemyMovement>();
 
-        if (playerTurn)
-        {
-
-            timer -= Time.deltaTime * 20f;
-            if (timer < 0) {
-                
-                if (!boardSetup)
-                {
-                    move_options = playerScript.gridManager.possible_moves(playerScript.playerPos, 2);
-                    boardSetup = true;
-                }
-            
-                if (playerScript.tempMovement(move_options))
-                {
-                    playerTurn = false;
-                    Debug.Log("Enemy Turn");
-                    timer = 10f;
-                    boardSetup = false;
-                    playerScript.gridManager.clearPaths();
-                }
-            }
-        }
-        else
-        {
-            timer -= Time.deltaTime * 10f;
-            if (timer < 0)
-            {
-                if (enemyScript.tempMovement())
-                {
-                    playerTurn = true;
-                    Debug.Log("Player Turn");
-                    timer = 10f;
-                }
-            }
-            
-        }
         
     }
+
+    public void nextTurn() {
+        playerTurn =!playerTurn;
+        if (playerTurn)
+        {
+            enemyScript.enemyTurn = false;
+        }
+        else {
+            enemyScript.enemyTurn = true;
+        }
+    }
+
 
 
 }
